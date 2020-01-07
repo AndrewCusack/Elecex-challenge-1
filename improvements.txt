@@ -1,0 +1,17 @@
+-I think there could be a requirement that could involve a DELETE operation of
+an entity. This would give an opportunity to test the personal knowledge of the
+candidate for SQL and for knowledge of REST, as the other parts of this assignment
+can be easily derived from previous code.
+
+-There could be more SQL operations put into the project. A couple of more
+complex statements or a requirement related to creating triggers or tables could
+help with allowing candidates to show their skills.
+
+-The packaging and other relevant files were easy to work with, it was pretty
+easy to delve straight into the project. The documentation was clear and easy to
+understand.
+
+- I decided to leave generic messages for the error handling instead of if I
+were actually writing it, many of the errors would simply return a 404 status.
+I used it as an opportunity to triple check the locations of the corresponding
+errors with each related issue.
