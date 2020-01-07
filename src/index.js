@@ -29,6 +29,12 @@ const setup = async () => {
             .catch(next);
     });
 
+    app.get('/devices/active/:isActive', (req, res, next) => {
+        return db.all('SELECT * FROM devices WHERE active = ?;', req.params.isActive)
+            .then(devices => res.json(devices))
+            .catch(next);
+    });
+
     app.post('/devices', (req, res, next) => {
         const newDevice = [req.body.siteId, req.body.name, req.body.active];
         return db.run('INSERT INTO devices (siteId, name, active) VALUES (?, ?, ?)', newDevice)
