@@ -37,6 +37,15 @@ const setup = async () => {
             .catch(next);
     });
 
+    app.get('/sites/:id', (req, res, next) => {
+        return db.get('SELECT * FROM sites WHERE id = ?;', req.params.id)
+            .then(selectedSite => db.all('SELECT * FROM devices WHERE siteId = ?;', req.params.id)
+					       .then(function(devices) { selectedSite.devices = devices; res.json(selectedSite); })
+					       .catch(next)
+			      )
+			      .catch(next);
+    });
+
     app
         .listen(3000, '0.0.0.0', () => { console.info('server listening on port: 3000'); })
         .on('request', (req) => { console.info(req.method, req.baseUrl + req.url); })
